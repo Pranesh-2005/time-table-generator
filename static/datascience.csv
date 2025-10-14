@@ -1,0 +1,51 @@
+Department,Block,Classroom,Day,Slot,Subject,Faculty
+DATA SCIENCE,AB1,E403,Monday,S8.50am - 9.40am,,
+DATA SCIENCE,AB1,E403,Monday,S9.40am - 10.30am,22MAT225,Probability Theory-Dr. J. Ravichandran
+DATA SCIENCE,AB1,E403,Monday,S10.30am - 10.45am,Break,
+DATA SCIENCE,AB4,E403,Monday,S10.45am - 11.35am,22CSC202,Foundations of Data Science-Dr. sumath IR and Dr. Rajitha
+DATA SCIENCE,AB1,E403,Monday,S11.35am - 12.25pm,22CSC201,-DataStructures Dr.D.Venkatraman
+DATA SCIENCE,AB1,E403,Monday,S12.25pm - 1.15pm,22MAT224,Optimization Techniques-Dr. E. Sekar
+DATA SCIENCE,AB1,E403,Monday,S1.15pm - 2.05pm,,
+DATA SCIENCE,AB1,E403,Monday,S2.05pm - 2.55pm,22MAT226,Numerical Methods-Dr. P. Puvaneswari
+DATA SCIENCE,AB1,E403,Monday,S2.55pm - 3.45pm,22MAT226,Numerical Methods-Dr. P. Puvaneswari
+DATA SCIENCE,AB1,E403,Monday,S3.45pm - 4.35pm,,
+DATA SCIENCE,AB1,W102,Tuesday,S8.50am - 9.40am,22CSC201,Data StructuresDr.D.Venkatraman
+DATA SCIENCE,AB1,W102,Tuesday,S9.40am - 10.30am,22MAT225,Probability Theory-Dr. J. Ravichandran
+DATA SCIENCE,AB1,W102,Tuesday,S10.30am - 10.45am,Break,
+DATA SCIENCE,dslab,W102,Tuesday,S10.45am - 11.35am,22CSC281,Data Structures lab-Dr.D.Venkatraman 
+DATA SCIENCE,dslab,W102,Tuesday,S11.35am - 12.25pm,22CSC281,Data Structures lab-Dr.D.Venkatraman
+DATA SCIENCE,AB1,W102,Tuesday,S12.25pm - 1.15pm,,
+DATA SCIENCE,AB1,W102,Tuesday,S1.15pm - 2.05pm,,
+DATA SCIENCE,AB1,W102,Tuesday,S2.05pm - 2.55pm,Mentor hour,sriram
+DATA SCIENCE,AB1,W102,Tuesday,S2.55pm - 3.45pm,22CSC202,Foundations of Data Science-Dr. sumath IR and Dr. Rajitha
+DATA SCIENCE,AB1,W102,Tuesday,S3.45pm - 4.35pm,22CSC202,Foundations of Data Science-Dr. sumath IR and Dr. Rajitha
+DATA SCIENCE,AB1,W102,Wednesday,S8.50am - 9.40am,22MAT226,Numerical Methods-Dr. P. Puvaneswari
+DATA SCIENCE,AB1,W102,Wednesday,S9.40am - 10.30am,22MAT225,probability Theory-Dr. J. Ravichandran
+DATA SCIENCE,AB1,W102,Wednesday,S10.30am - 10.45am,Break,
+DATA SCIENCE,dslab,W102,Wednesday,S10.45am - 11.35am,22MAT286,-Data Science Lab-I: Statistics and Numerical Methods Lab-Research Scholar Antony
+DATA SCIENCE,dslab,W102,Wednesday,S11.35am - 12.25pm,22MAT286,Data Science Lab-I: Statistics and Numerical Methods Lab-Research Scholar Antony
+DATA SCIENCE,AB1,W102,Wednesday,S12.25pm - 1.15pm,22CSC201,Data StructuresDr.D.Venkatraman
+DATA SCIENCE,AB1,W102,Wednesday,S1.15pm - 2.05pm,,
+DATA SCIENCE,AB1,W102,Wednesday,S2.05pm - 2.55pm,22MAT224,Optimization Techniques-Dr. E. Sekar
+DATA SCIENCE,AB1,W102,Wednesday,S2.55pm - 3.45pm,CIR(SS), CIR(SS) Ms. Lekha Sree A
+DATA SCIENCE,AB1,W102,Wednesday,S3.45pm - 4.35pm,22CSC202,Foundations of Data Science-Dr. sumath IR and Dr. Rajitha
+DATA SCIENCE,AB1,E403,Thursday,S8.50am - 9.40am,22MAT224,Optimization Techniques-Dr. E. Sekar
+DATA SCIENCE,AB1,E403,Thursday,S9.40am - 10.30am,22MAT225,probability Theory-Dr. J. Ravichandran
+DATA SCIENCE,AB1,E403,Thursday,S10.30am - 10.45am,Break,
+DATA SCIENCE,AB1,E403,Thursday,S10.45am - 11.35am,22ADM211,-Amrita Values Programme I
+DATA SCIENCE,AB1,E403,Thursday,S11.35am - 12.25pm,22MAT226,Numerical Methods-Dr. P. Puvaneswari
+DATA SCIENCE,AB1,E403,Thursday,S12.25pm - 1.15pm,,
+DATA SCIENCE,AB1,E403,Thursday,S1.15pm - 2.05pm,,
+DATA SCIENCE,AB1,E403,Thursday,S2.05pm - 2.55pm,22CSC202,foundations of Data Science-Dr. sumath IR and Dr. Rajitha
+DATA SCIENCE,AB1,E403,Thursday,S2.55pm - 3.45pm,22CSC201,Data Structures lab-Dr.D.Venkatraman
+DATA SCIENCE,AB1,E403,Thursday,S3.45pm - 4.35pm,,
+DATA SCIENCE,AB1,E403,Friday,S8.50am - 9.40am,,
+DATA SCIENCE,AB1,E403,Friday,S9.40am - 10.30am,CIR(VER),Ms. Nithya Kalyan
+DATA SCIENCE,AB1,E403,Friday,S10.30am - 10.45am,Break,
+DATA SCIENCE,AB1,E403,Friday,S10.45am - 11.35am,22MAT224,Optimization Techniques-Dr. E. Sekar
+DATA SCIENCE,AB1,E403,Friday,S11.35am - 12.25pm,CIR(APT),Mr. M Saravana Kumar
+DATA SCIENCE,AB1,E403,Friday,S12.25pm - 1.15pm,,
+DATA SCIENCE,AB1,E403,Friday,S1.15pm - 2.05pm,,
+DATA SCIENCE,AB1,E403,Friday,S2.05pm - 2.55pm,,
+DATA SCIENCE,AB1,E403,Friday,S2.55pm - 3.45pm,,
+DATA SCIENCE,AB1,E403,Friday,S3.45pm - 4.35pm,,

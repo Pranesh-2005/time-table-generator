@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Slot Checker</title>
+  <style>
+    :root {
+      --primary-color: #800000; /* Maroon color */
+      --secondary-color: #ffff;
+      --text-color: #333;
+      --light-gray: #f5f5f5;
+      --border-color: #ddd;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      position: absolute;
+       top: 50%;
+      left: 50%;
+       transform: translate(-50%, -50%);
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+    
+    .university-name {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .title {
+      font-size: 1.6rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color:#333;
+    }
+    
+    select, input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: white;
+    }
+    
+    select:focus, input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(128, 0, 0, 0.2);
+    }
+    
+    .check-btn {
+      background-color: var(--primary-color);
+      color: rgb(246, 240, 240);
+      border: none;
+      padding: 12px 20px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    .check-btn:hover {
+      background-color: #600000;
+    }
+    
+    .check-btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    .result-box {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+    }
+    
+    .free {
+      background-color: #e8f5e9;
+      border-left: 5px solid #4caf50;
+    }
+    
+    .occupied {
+      background-color: #ffebee;
+      border-left: 5px solid #f44336;
+    }
+    
+    .occupied-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .occupied-box {
+      background: white;
+      padding: 12px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .result-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .result-details {
+      margin-top: 10px;
+    }
+    
+    .detail-row {
+      display: flex;
+      margin-bottom: 6px;
+    }
+    
+    .detail-label {
+      font-weight: 600;
+      width: 100px;
+      flex-shrink: 0;
+    }
+    
+    .no-slots {
+      text-align: center;
+      font-style: italic;
+      color: #666;
+      margin-top: 10px;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .break-period {
+      
+      border-left: 5px solid #fcfaf4;
+      color: #202020;
+      padding: 12px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    @media (min-width: 768px) {
+      .occupied-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="university-name">AMRITA VISHWA VIDYAPEETHAM</div>
+      <h1 class="title">Free Slot Checker</h1>
+    </div>
+
+    <div class="form-group">
+      <label for="department">Select Department</label>
+      <select id="department">
+        <option value="" selected disabled>Select a department</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="day">Select Day</label>
+      <select id="day">
+        <option value="" selected disabled>Select a day</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="time">Enter Time</label>
+      <input type="text" id="time" placeholder="e.g., 8:50, 16:35"/>
+    </div>
+
+    <button id="checkBtn" class="check-btn">Check Slots</button>
+
+    <div id="freeResult" class="result-box free"></div>
+    <div id="occupiedResult" class="result-box occupied"></div>
+
+    <div class="footer">
+      
+    </div>
+  </div>
+
+  <script>
+    const deptEl = document.getElementById("department");
+    const dayEl = document.getElementById("day");
+    const timeEl = document.getElementById("time");
+    const checkBtn = document.getElementById("checkBtn");
+    const freeDiv = document.getElementById("freeResult");
+    const occupiedDiv = document.getElementById("occupiedResult");
+
+    let allData = [];
+    let loaded = false;
+
+    // 👇 add mapping for CSV files
+    const files = [
+      { name: "Physics", path: "static/physics.csv" },
+      { name: "Chemistry", path: "static/chemistry.csv" },
+      { name: "Data Science", path: "static/datascience.csv" }
+    ];
+
+    async function loadCSVs() {
+      for (let f of files) {
+        try {
+          const res = await fetch(f.path);
+          if (!res.ok) throw new Error(`Failed to load ${f.path}`);
+          const text = await res.text();
+          const lines = text.split('\n').slice(1); // skip header
+          lines.forEach(line => {
+            if (line.trim()) {
+              const [dept, block, classroom, day, slot, subject, faculty] = line.split(',').map(s => s.trim());
+              allData.push({ dept, block, classroom, day, slot, subject, faculty, fileDept: f.name });
+            }
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      // fill department dropdown based on file names
+      files.forEach(f => {
+        const option = document.createElement("option");
+        option.value = f.name;
+        option.textContent = f.name;
+        deptEl.appendChild(option);
+      });
+
+      loaded = true;
+    }
+
+    function parseSlotTime(ts) {
+      ts = ts.replace('.', ':').toLowerCase().trim();
+      const isPM = ts.includes('pm');
+      const isAM = ts.includes('am');
+      ts = ts.replace(/am|pm/i, '').trim();
+      let [h, m] = ts.split(':').map(Number);
+      if (Number.isNaN(h) || Number.isNaN(m)) return null;
+      if (isPM && h < 12) h += 12;
+      if (isAM && h === 12) h = 0;
+      return h * 60 + m;
+    }
+
+    function isTimeInSlot(userMin, slot) {
+      let [startStr, endStr] = slot.split(' - ');
+      if (!startStr || !endStr) return false;
+      startStr = startStr.replace(/^S/i, '').trim();
+      const start = parseSlotTime(startStr);
+      const end = parseSlotTime(endStr);
+      if (start === null || end === null) return false;
+      return userMin >= start && userMin < end;
+    }
+
+    function parseUserTime(timeStr) {
+      timeStr = timeStr.replace('.', ':').trim();
+      const [uh, um] = timeStr.split(':').map(Number);
+      if (Number.isNaN(uh) || Number.isNaN(um)) throw new Error('Invalid time format');
+      const userMin = uh * 60 + um;
+      if (userMin < 8*60+50 || userMin > 16*60+35) throw new Error('Enter timing between 8:50 - 16:35 only');
+      return userMin;
+    }
+
+    checkBtn.addEventListener("click", async () => {
+      const dept = deptEl.value;
+      const day = dayEl.value;
+      const time = timeEl.value.trim();
+      if (!dept) { alert("Select department"); return; }
+      if (!day) { alert("Select day"); return; }
+      if (!time) { alert("Enter a time (e.g., 8:50, 16:35)"); return; }
+
+      freeDiv.style.display = "none";
+      occupiedDiv.style.display = "none";
+      checkBtn.textContent = "Checking...";
+      checkBtn.disabled = true;
+
+      try {
+        if (!loaded) await loadCSVs();
+        const userMin = parseUserTime(time);
+
+        // filter records for this dept + day
+        const deptData = allData.filter(entry => entry.fileDept === dept && entry.day === day);
+
+        // Handle break time
+        const breakStart = 10*60 + 30;
+        const breakEnd = 10*60 + 45;
+        if (userMin >= breakStart && userMin < breakEnd) {
+          freeDiv.innerHTML = '<div class="break-period">⏰ Break Period</div>';
+          freeDiv.style.display = "block";
+          occupiedDiv.innerHTML = '<div class="no-slots">No occupied slots during break.</div>';
+          occupiedDiv.style.display = "block";
+          checkBtn.textContent = "Check Slots";
+          checkBtn.disabled = false;
+          return;
+        }
+
+        // Free classrooms
+        const freeClassrooms = deptData
+          .filter(entry => isTimeInSlot(userMin, entry.slot) && (!entry.subject || entry.subject.trim() === ""))
+          .map(entry => `${entry.block} - ${entry.classroom}`);
+
+        // Occupied classrooms
+        const occupiedDetails = deptData
+          .filter(entry => isTimeInSlot(userMin, entry.slot) && entry.subject && entry.subject.trim() !== "" && entry.subject.toLowerCase() !== "break")
+          .map(entry => ({
+            block: entry.block,
+            classroom: entry.classroom,
+            subject: entry.subject,
+            faculty: entry.faculty
+          }));
+
+        if (freeClassrooms.length > 0) {
+          freeDiv.innerHTML = `
+            <div class="result-title">Free Slots Available</div>
+            <div class="result-details">
+              ${[...new Set(freeClassrooms)].map(room => `
+                <div class="detail-row">
+                  <div class="detail-label">Classroom:</div>
+                  <div>${room}</div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        } else {
+          freeDiv.innerHTML = `
+            <div class="result-title">No Free Slots</div>
+            <div class="no-slots">All classrooms are occupied at this time.</div>
+          `;
+        }
+        freeDiv.style.display = "block";
+
+        if (occupiedDetails.length > 0) {
+          const occupiedHtml = occupiedDetails.map(d => `
+            <div class="occupied-box">
+              <div class="detail-row">
+                <div class="detail-label">Block:</div>
+                <div>${d.block}</div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Classroom:</div>
+                <div>${d.classroom}</div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Course:</div>
+                <div>${d.subject}</div>
+              </div>
+              <div class="detail-row">
+                <div class="detail-label">Faculty:</div>
+                <div>${d.faculty}</div>
+              </div>
+            </div>
+          `).join("");
+          occupiedDiv.innerHTML = `
+            <div class="result-title">Occupied Classrooms</div>
+            <div class="occupied-grid">
+              ${occupiedHtml}
+            </div>
+          `;
+        } else {
+          occupiedDiv.innerHTML = `
+            <div class="result-title">No Occupied Slots</div>
+            <div class="no-slots">No classrooms are occupied at this time.</div>
+          `;
+        }
+        occupiedDiv.style.display = "block";
+
+      } catch (err) {
+        alert(err.message || "Error processing data.");
+        console.error(err);
+      } finally {
+        checkBtn.textContent = "Check Slots";
+        checkBtn.disabled = false;
+      }
+    });
+
+    // Load CSVs on page load
+    loadCSVs();
+  </script>
+</body>
+</html>
